@@ -21,39 +21,27 @@ export const school = {
     7: new Student('Ivan', [76, 89, 78, 98, 98, 99, 89, 96]),
   },
   get aGradeStudents() {
-    const students = [];
-    Object.values(this.students).filter((item) => {
-      if (item.averageGrade >= 90) {
-        students.push(item.name);
-      }
-    });
-    return students.join(', ');
+    return Object.values(this.students)
+      .filter((item) => item.averageGrade >= 90 && item.averageGrade <= 100)
+      .map((item) => item.name)
+      .join(', ');
   },
   get bGradeStudents() {
-    const students = [];
-    Object.values(this.students).filter((item) => {
-      if (item.averageGrade >= 75 && item.averageGrade < 90) {
-        students.push(item.name);
-      }
-    });
-    return students.join(', ');
+    return Object.values(this.students)
+      .filter((item) => item.averageGrade >= 75 && item.averageGrade < 90)
+      .map((item) => item.name)
+      .join(', ');
   },
   get cGradeStudents() {
-    const students = [];
-    Object.values(this.students).filter((item) => {
-      if (item.averageGrade >= 60 && item.averageGrade < 75) {
-        students.push(item.name);
-      }
-    });
-    return students.join(', ');
+    return Object.values(this.students)
+      .filter((item) => item.averageGrade >= 60 && item.averageGrade < 75)
+      .map((item) => item.name)
+      .join(', ');
   },
   get dGradeStudents() {
-    const students = [];
-    Object.values(this.students).filter((item) => {
-      if (item.averageGrade >= 0 && item.averageGrade < 60) {
-        students.push(item.name);
-      }
-    });
-    return students.join(', ');
+    return Object.values(this.students)
+      .filter((item) => item.averageGrade >= 0 && item.averageGrade <= 60)
+      .map((item) => item.name)
+      .join(', ');
   },
 };
